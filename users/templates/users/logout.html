@@ -1,0 +1,9 @@
+{% extends "ConnectMe/base2.html" %}
+{% block content-1 %}
+    <h1 style="color: gray">You Have been Succsefully logout!</h1>
+    <div class="border-top pt-3">
+        <h5 class="text-muted">
+            <a class="ml-2" href="{% url 'login' %}">Log In Again</a>
+        </h5>
+    </div>
+{% endblock content-1 %}

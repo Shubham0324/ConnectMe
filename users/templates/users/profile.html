@@ -1,0 +1,23 @@
+{% extends "ConnectMe/base2.html" %}
+{% load crispy_forms_tags %}
+{% block content-1 %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+      </div>
+      <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Profile Info</legend>
+              <small class="alert-danger">Profile Picture Update Process is currently closed due to limited space available and could cause error when login again.</small>
+              {{ u_form|crispy }}
+              {{ p_form|crispy }}
+          </fieldset>
+      </form>
+    <h3>Web Notes Section. <a href="https://shubhamaggarwal.tech/notes/inded.html">Click Here to Access.</a></h3>
+    </div>
+{% endblock content-1 %}

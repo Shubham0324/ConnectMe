@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Shubham Aggarwal - Team Cypher">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"  href="{% static 'ConnectMe/main.css' %}">
+    <link rel="stylesheet" type="text/css"  href="{% static 'ConnectMe/styles.css' %}">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/745174933713322057/773065802672504842/favicon.ico">
+
+    {% if title %}
+        <title>ConnectMe - {{ title }}</title>
+    {%  else %}
+        <title>ConnectMe </title>
+    {% endif %}
+</head>
+<body style="margin-top: 0px;">
+
+     <!-- Start: sticky dark top nav with dropdown -->
+    <nav class="navbar navbar-light navbar-expand-md navbar-fixed-top navigation-clean-button" style="margin-bottom: 25px;">
+        <div class="container">
+            <div><a class="navbar-brand" href="{% url 'connectme-home' %}"><span>ConnectME</span> </a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav nav-right">
+                    <li class="nav-item" role="presentation"><a class="nav-link"  style="color: white" href={% url 'blog-home' %}>Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" style="color: white" href="{% url 'connectme-home' %}">Services</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link"  style="color: white" href="{% url 'blog-about' %}">About </a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link"  style="color: white" href="#contact24032001">Contact </a></li>
+                </ul>
+                <!-- Start: Actions -->
+                <p class="ml-auto navbar-text actions">
+                    {% if user.is_authenticated %}
+                        <a class="btn btn-light action-button" role="button" href="{% url 'post-create' %}">Share</a>
+                        <a class="btn btn-light action-button" role="button" href="{% url 'profile' %}">Profile</a>
+                        <a class="btn btn-light action-button" role="button" href="{% url 'logout' %}">Log Out</a>
+                    {% else %}
+                        <a class="btn btn-light action-button" href="{% url 'login' %}">Log In</a>
+                        <a class="btn btn-light action-button" role="button" href="{% url 'register' %}">Sign Up</a>
+                    {% endif %}
+                </p>
+                <!-- End: Actions -->
+        </div>
+        </div>
+    </nav>
+    <!-- End: sticky dark top nav with dropdown -->
+
+     <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+          {% block content-1 %}{% endblock %}
+        </div>
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Quick Navigation</h3>
+              <ul class="list-group">
+                <a href="{% url 'blog-home' %}"><li class="list-group-item list-group-item-light">Not to Miss</li></a>
+              {% if user.is_authenticated %}
+                  <a href={% url 'todo' %} target="_blank"><li class="list-group-item list-group-item-light">Todo List</li></a>
+                  <a href="https://shubhamaggarwal.tech/faculty/index.html"target="_blank"><li class="list-group-item list-group-item-light">Know Your Faculty(Beta)</li></a>
+                  <a href="https://dhruvchawla102.github.io/ComplaintSection/" target="_blank"><li class="list-group-item list-group-item-light">Register A Complaint</li></a>
+                  <a href="https://frozen-wave-58770.herokuapp.com/f3de713c-ecb9-4689-a3e3-ef17f6b16b58" target="_blank"><li class="list-group-item list-group-item-light">Join Class</li></a>
+
+                    {% else %}
+                  <a href="https://www.google.com/calendar/about/" target="_blank"><li class="list-group-item list-group-item-light">Calender</li></a>
+
+             {% endif %}
+                <a href="https://discord-clone-2a247.web.app/"target="_blank"><li class="list-group-item list-group-item-light">Class and Beyond</li></a>
+                <a href="https://dhruvchawla102.github.io/college/"target="_blank"><li class="list-group-item list-group-item-light">Explore E-Stuff</li></a>
+
+
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+     </main>
+
+     <section class="getintouch">
+         <div class="container modern-form">
+             <div class="text-center">
+                 {% if user.is_authenticated %}
+                            <h4 style="color: #212529;font-size: 45px;">Need Help! Ping Us!</h4>
+                 {% else %}
+                            <h4 style="color: #212529;font-size: 45px;">Get In Touch Now</h4>
+                 {% endif %}
+                    </div>
+                    <hr class="modern-form__hr">
+                    <div class="modern-form__form-container">
+                        <form>
+                            <div class="form-row">
+                                <div class="col col-contact">
+                                    <div class="form-group modern-form__form-group--padding-r"><input class="form-control input input-tr" type="text" required="required" placeholder="Your Good Name">
+                                        <div class="line-box">
+                                            <div class="line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-contact">
+                                    <div class="form-group modern-form__form-group--padding-l"><input class="form-control input input-tr" type="email" required="required" placeholder="yourmail@provider.com">
+                                        <div class="line-box">
+                                            <div class="line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="form-group modern-form__form-group--padding-t"><textarea class="form-control input modern-form__form-control--textarea" placeholder="Message" required="required"></textarea>
+                                        <div class="line-box">
+                                            <div class="line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col text-center"><a class ="btn btn-primary submit-now" href="{% url 'thanku' %}">Submit</a></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </section>
+        <!-- End: Modern Contact Form -->
+     </section>*
+
+     <footer id="contact24032001">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 footer-navigation">
+                    <h3><a href="{% url 'connectme-home' %}">Connect<span>Me </span></a></h3>
+                    <p class="links"><a href="{% url 'connectme-home' %}">Home</a><strong> · </strong><a href="{% url 'blog-about' %}">About</a><strong> · </strong><a href="{% url 'blog-about' %}">Contact</a><strong> · </strong><a href="https://shubhamaggarwal.tech/update/update.html">Future-Updates-College</a></p>
+                    <p class="company-name">ConnectMe © 2020 </p>
+                </div>
+                <div class="col-sm-6 col-md-4 footer-contacts">
+                    <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                        <p><span class="new-line-span">New Delhi</span> India</p>
+                    </div>
+                    <div><i class="fa fa-phone footer-contacts-icon"></i>
+                        <p class="footer-center-info email text-left"> +91 1234567890</p>
+                    </div>
+                    <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                        <p> <a href="mailto:shubham2403tayal@gmail.com" target="_blank">support@connectme.com</a></p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-4 footer-about">
+                    <h4>About the company</h4>
+                    <p> A TECHNOLOGY FRIENDLY STARTUP TRYING TO CHANGE THE ROOT PATERN OF SOCIETY</p>
+                    <ul class="dot-footer"style="list-style-type: none">
+                    <li style="display: inline;padding: 6px;"><a href="https://www.facebook.com/" class="dot-footer"><img src={% static 'ConnectMe/fb.png' %} alt="FB"></a></li>
+                    <li style="display: inline;padding: 6px;"><a href="https://www.instagram.com/"class="dot-footer"><img src={% static 'ConnectMe/insta.png' %} alt="Insta"></a></li>
+                    <li style="display: inline;padding: 6px;"><a href="https://www.github.com/"class="dot-footer"><img src={% static 'ConnectMe/github.png' %} alt="Github"></a></li>
+                    <li style="display: inline;padding: 6px;"><a href="https://www.linkedin.com/"class="dot-footer"><img src={% static 'ConnectMe/linkedin.png' %} alt="Linkedin"></a></li>
+                    <li style="display: inline;padding: 6px;"><a href="mailto:shubham2403tayal@gmail.com"class="dot-footer"><img src={% static 'ConnectMe/mail.png' %} alt="Mail"></a></li>
+                 </ul>
+                </div>
+            </div>
+     </footer>
+    <script src="{% static 'ConnectMe/jquery.min.js' %}"></script>
+    <script src="{% static 'ConnectMe/bootstrap.min.js' %}"></script>
+</body>
+</html>

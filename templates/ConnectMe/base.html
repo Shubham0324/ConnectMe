@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Shubham Aggarwal - Team Cypher">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+                            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"  href="{% static 'ConnectMe/styles.css' %}">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/745174933713322057/773065802672504842/favicon.ico">
+
+
+    <title>ConnectMe - Home</title>
+
+</head>
+<body>
+     <!-- Start: sticky dark top nav with dropdown -->
+    <nav class="navbar navbar-light navbar-expand-md navbar-fixed-top navigation-clean-button">
+        <div class="container">
+            <div><a class="navbar-brand" href="{% url 'connectme-home' %}"><span>ConnectME</span> </a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav nav-right">
+                    <li class="nav-item" role="presentation"><a class="nav-link" style="color: white" href="{% url 'connectme-home' %}">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" style="color: white" href="#123456789">Services</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" style="color: white" href="{% url 'blog-home' %}">College-Link </a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" style="color: white" href="{% url 'blog-about' %}">About </a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" style="color: white" href="#contact2403200101">Contact </a></li>
+                </ul>
+                <!-- Start: Actions -->
+                <p class="ml-auto navbar-text actions">
+                    <a class="login" href="{% url 'login' %}">Log In</a>
+                    <a class="btn btn-light action-button" role="button" href="{% url 'logout' %}">Sign Up</a></p>
+                <!-- End: Actions -->
+        </div>
+        </div>
+    </nav>
+    <!-- End: sticky dark top nav with dropdown -->
+    {%  block content %}
+    {% endblock content%}
+             <!-- Start: Modern Contact Form -->
+    <section class="getintouch">
+            <div class="container modern-form">
+                <div class="text-center">
+                    <h4 style="color: #212529;font-size: 45px;">Get in touch</h4>
+                </div>
+                <hr class="modern-form__hr">
+                <div class="modern-form__form-container">
+                    <form>
+                        <div class="form-row">
+                            <div class="col col-contact">
+                                <div class="form-group modern-form__form-group--padding-r"><input class="form-control input input-tr" type="text"  required="required"  placeholder="Your Good Name">
+                                    <div class="line-box">
+                                        <div class="line"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-contact">
+                                <div class="form-group modern-form__form-group--padding-l"><input class="form-control input input-tr" type="email"  required="required"  placeholder="yourmail@provider.com">
+                                    <div class="line-box">
+                                        <div class="line"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group modern-form__form-group--padding-t"><textarea class="form-control input modern-form__form-control--textarea"  required="required"  placeholder="Message"></textarea>
+                                    <div class="line-box">
+                                        <div class="line"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                                <div class="col text-center"><a class ="btn btn-primary submit-now" href="{% url 'thanku' %}">Submit</a></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </section>
+        <!-- End: Modern Contact Form -->
+    <div id="contact2403200101">
+         <footer>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 footer-navigation">
+                    <h3><a href="{% url 'connectme-home' %}">Connect<span>Me </span></a></h3>
+                    <p class="links"><a href="{% url 'connectme-home' %}">Home</a><strong> · </strong><a href="{% url 'blog-about' %}">About</a><strong> · </strong><a href="{% url 'blog-about' %}">Contact</a><strong> · </strong><a href="https://shubhamaggarwal.tech/update/update.html">Future-Updates-College</a></p>
+                    <p
+                        class="company-name">ConnectMe © 2020 </p>
+                </div>
+                <div class="col-sm-6 col-md-4 footer-contacts">
+                    <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                        <p><span class="new-line-span">New Delhi</span> India</p>
+                    </div>
+                    <div><i class="fa fa-phone footer-contacts-icon"></i>
+                        <p class="footer-center-info email text-left"> +91 1234567890</p>
+                    </div>
+                    <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                        <p> <a href="mailto:shubham2403tayal@gmail.com" target="_blank">support@connectme.com</a></p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-4 footer-about">
+                    <h4>About the company</h4>
+                    <p> A TECHNOLOGY FRIENDLY STARTUP TRYING TO CHANGE THE ROOT PATERN OF SOCIETY</p>
+                    <ul class="dot-footer"style="list-style-type: none">
+                    <li style="display: inline;padding: 6px;"><a href="https://www.facebook.com/" class="dot-footer"><img src={% static 'ConnectMe/fb.png' %} alt="FB"></a></li>
+                    <li style="display: inline;padding: 6px;"><a href="https://www.instagram.com/"class="dot-footer"><img src={% static 'ConnectMe/insta.png' %} alt="Insta"></a></li>
+                    <li style="display: inline;padding: 6px;"><a href="https://www.github.com/"class="dot-footer"><img src={% static 'ConnectMe/github.png' %} alt="Github"></a></li>
+                    <li style="display: inline;padding: 6px;"><a href="https://www.linkedin.com/"class="dot-footer"><img src={% static 'ConnectMe/linkedin.png' %} alt="Linkedin"></a></li>
+                    <li style="display: inline;padding: 6px;"><a href="mailto:shubham2403tayal@gmail.com"class="dot-footer"><img src={% static 'ConnectMe/mail.png' %} alt="Mail"></a></li>
+                 </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="{% static 'ConnectMe/jquery.min.js' %}"></script>
+    <script src="{% static 'ConnectMe/bootstrap.min.js' %}"></script>
+</body>
+</html>

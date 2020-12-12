@@ -1,0 +1,18 @@
+{% extends "ConnectMe/base2.html" %}
+{% block content-1 %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">!Delete Post!</legend>
+                <h1>Are you sure you want to delete the post "{{ object.title}}"</h1>
+                <small class="alert-info">{{ object.category }}</small>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+                <a class="btn btn-outline-secondary" href={% url 'blog-home' %}>Cancel</a>
+
+            </div>
+        </form>
+    </div>
+{% endblock content-1 %}
