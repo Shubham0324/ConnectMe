@@ -1,5 +1,5 @@
 # ConnectMe
-## A Innerve Hacks 2020 Project
+
 ## Project Link: [https://connectmetoedworld.herokuapp.com/](https://connectmetoedworld.herokuapp.com/)
 
 ## About The Project
